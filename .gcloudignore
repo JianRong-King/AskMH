@@ -1,0 +1,23 @@
+# What `gcloud run deploy --source .` uploads to Cloud Build. Without this file gcloud
+# falls back to .gitignore, which drops data/ and with it the vector store.
+.gcloudignore
+.git
+.gitignore
+**/node_modules
+web/dist
+**/__pycache__
+**/*.pyc
+.venv
+.env
+*.log
+.claude
+.pytest_cache
+docs
+eval/results
+
+# Runtime needs the vector store and chunks only.
+data/articles
+data/manifest.json
+data/failed.json
+data/metrics.db
+data/checkpoints.db

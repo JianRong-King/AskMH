@@ -1,0 +1,19 @@
+.git
+.gitignore
+**/node_modules
+web/dist
+**/__pycache__
+**/*.pyc
+.venv
+.env
+*.log
+docs
+eval/results
+
+# Runtime needs the vector store and chunks only. The markdown corpus is for
+# re-chunking, which the container never does.
+data/articles
+data/manifest.json
+data/failed.json
+data/metrics.db
+data/checkpoints.db
