@@ -1,6 +1,8 @@
 # AskMH Chatbot
 
-A RAG chatbot that answers Malaysia Airlines passenger questions using only the official [AskMH help centre](https://www.askmh.malaysiaairlines.com/faq/s/). Every answer links to the article it came from. When a question depends on details the user hasn't given, such as route, cabin or fare, it asks a follow-up question. When it can't answer, it hands off to (simulated) live chat instead of guessing.
+AskMH is an agentic RAG support assistant that answers Malaysia Airlines passenger questions using only a 1,483-article knowledge base. It cites its sources, asks for missing details, and hands off to a human when it can't help.
+Under the hood, a LangGraph state machine routes each message, retrieves and grades relevant articles, and generates grounded answers through typed Pydantic decision points.
+It is served by a FastAPI backend with Google sign-in and a React frontend, and is deployed on Google Cloud Run with LangSmith tracing and an admin analytics dashboard.
 
 **Live demo:** https://askmh-194250607947.asia-southeast1.run.app (Google sign-in required, because the demo shares a free-tier model quota)
 
@@ -75,9 +77,9 @@ flowchart TD
 
 ### Design choices
 
-- **Dense retrieval only.** Hybrid dense + BM25 scored lower than plain dense on the 50-question eval, so the agent dropped it ([FINDINGS.md](eval/FINDINGS.md) F1).
+- **Dense retrieval only.** Hybrid dense + BM25 scored lower than plain dense on the 50-question eval, so Hybrid was dropped.
 - **Small articles stay whole.** 98% of articles are under 1,500 characters, so they are embedded as one chunk. Longer ones split at paragraph breaks, and tables are never split.
-- **Gemini thinking off.** It gave the same accuracy as dynamic thinking, at about half the median latency and a fifth of the cost ([benchmark report](eval/benchmarks/2026-10-16-gemini-thinking/REPORT.md)).
+- **Gemini thinking off.** It gave the same accuracy as dynamic thinking, at about half the median latency and a fifth of the cost.
 - **Sign-in protects the quota, not the key.** The Gemini key never leaves the server. Google sign-in only gates who can spend the shared daily quota.
 - **No stored conversations.** Chat memory is in-memory and deleted when the user refreshes, closes the tab or starts a new chat. Only anonymous metrics persist.
 - **Source links go through `/go`.** It logs the click for click-through metrics and only redirects to AskMH URLs.
