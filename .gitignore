@@ -6,3 +6,4 @@ data/
 *.log
 docs/
 eval/results/
+CLAUDE.md
