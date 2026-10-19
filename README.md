@@ -87,14 +87,16 @@ flowchart TD
 
 **Retrieval** (50 paraphrased questions, worded differently from the article titles): Recall@5 **96%** (48/50), MRR **0.848**.
 
-**End-to-end** (50 questions, full agent, recorded 2026-10-16):
+**End-to-end** (50 questions, full agent, recorded 2026-10-19):
 
-| Model | Answered, correct source cited | Asked a clarifying question | Declined | Handed off | Median turn |
-|---|---|---|---|---|---|
-| Gemini 2.5 Flash, thinking off | 36 | 7 | 6 | 1 | 3.9 s |
-| Qwen3-8B, local RTX 4060 | 22 | 16 | 12 | 0 | 2.4-3.2 s |
+| Model | Answered with a cited source | Asked a clarifying question | Declined | Median turn |
+|---|---|---|---|---|
+| Gemini 2.5 Flash, thinking off | 40 | 7 | 3 | 3.8 s |
+| Qwen3-8B, local RTX 4060 | 30 | 17 | 3 | 2.8 s |
 
-A clarifying question is a valid outcome, not a failure: many AskMH answers depend on the route, cabin or fare. Counting both, Gemini handles **43/50 (86%)** and Qwen 38/50 (76%) without declining. Every answer either model gave cited the correct article.
+A clarifying question is a valid outcome, not a failure: many AskMH answers depend on the route, cabin or fare. Counting both, each model handles **47/50 (94%)** without declining. Every Qwen answer cited the article labelled in the test set. Gemini's did in 38 of 40, and the other 2 cited a near-duplicate article with the same content.
+
+Before a prompt fix on 2026-10-19, Gemini declined 6 questions and Qwen 12. The router was rejecting partner services such as car rental and pet travel as out of scope, and the grader was declining articles that answered the question in different words.
 
 **Tests:** 40 pass on local Qwen3-8B, across 7 layers tested bottom-up: retrieval, structured output, router, grader, generation, full graph and API sessions.
 

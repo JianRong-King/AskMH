@@ -326,6 +326,33 @@ Qwen rewrote the same question correctly (`Can I buy MH Traveller’s Trio …`)
 
 Router answers in Sections 7 and 8 were recorded before the fix, so q004's outcome would differ in a re-run.
 
+**Addendum 2: router and grader prompt fix, 2026-10-19** (run 3, `runs/*_run3.json`)
+
+Most declines in Section 7.1 came from the router and grader, not retrieval. Two prompt changes in `agent/prompts.py`:
+
+1. **Router:** partner and add-on services (car rental, hotels, MHrail, cargo and pets, gift cards, bundles) are now `faq`; `out_of_scope` means nothing to do with travel or Malaysia Airlines. Questions *about* Live Chat are `faq`; only wanting to talk to someone now is `human`. This addresses follow-up 2 in Section 10.
+2. **Grader:** the `answer` rule adds "Its wording does not have to match the question's." A stronger rewrite (answer "fully or in part"; `none` only when every article is on a different subject) was tried first and rejected: on Qwen it answered the ambiguous "how much is extra baggage?" instead of asking for the route, and accepted baggage articles for a car-rental-in-Paris question. Both are covered by tests that failed.
+
+| Config | Run | answered | cited_expected | clarify | declined | handoff | median turn |
+|---|---|---|---|---|---|---|---|
+| gemini-off | r2 (before) | 36 | 36 | 7 | 6 | 1 | 3.91 s |
+| gemini-off | **r3 (after)** | **40** | **38** | 7 | **3** | **0** | 3.82 s |
+| qwen | r1 (before) | 22 | 22 | 16 | 12 | 0 | 2.42 s |
+| qwen | **r3 (after)** | **30** | **30** | 17 | **3** | 0 | 2.77 s |
+
+- **Gemini, router:** q005, q047 (car rental) and q019 (pet in extra baggage) moved from `out_of_scope` to answered with the labelled article. q038 is no longer handed off and now cites the near-duplicate Live Chat article.
+- **Gemini, other changes:**
+  - q036 (36 weeks pregnant) moved from declined to clarify.
+  - q025 now cites two MHflypass articles that say the same thing as the label, so it no longer counts as `cited_expected`.
+  - q001 moved from clarify to declined; its labelled article is not retrieved in either run.
+- **Qwen, router:** car rental and pet cargo questions (q005, q047, q049) now reach retrieval.
+- **Qwen, grader:** q003, q007, q008, q020, q023, q036, q042 and q044 moved to answered with the labelled article. q018 regressed from answered to declined.
+- **Qwen baseline caveat:** run 1 predates the 2026-10-18 router hardening, so q004 (declined to clarify) reflects that fix, not this one.
+- **Remaining declines:**
+  - Gemini: q001 and q040 (retrieval misses) and q006 (grader).
+  - Qwen: q018 (grader), plus q026 and q048, where its generator still refuses after the grader said answer.
+- Test suite: 40/40 pass on Qwen with the new prompts.
+
 ### 8.2 Gemini vs Qwen
 
 19 of the 26 differences between Qwen and Gemini-off are at the grader. With the same retrieved articles,
