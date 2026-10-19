@@ -1,0 +1,12 @@
+-r requirements-api.txt
+
+# Scraping (Phase 1) and the test suite. Not in the container.
+# langchain-classic only provides the hybrid EnsembleRetriever, which the agent no longer
+# uses; agent/retriever.py imports it lazily so the container can skip it.
+langchain-classic
+playwright
+beautifulsoup4
+lxml
+markdownify
+tqdm
+pytest

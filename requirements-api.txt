@@ -1,0 +1,19 @@
+# What the API container actually needs. requirements.txt includes this plus dev tools.
+# Install torch separately first: CPU wheels for the container, CUDA wheels locally.
+httpx
+pyyaml
+python-dotenv
+langchain
+langchain-community
+langchain-chroma
+langchain-huggingface
+langchain-google-genai
+langchain-ollama
+sentence-transformers
+rank_bm25
+langgraph
+huggingface_hub
+fastapi
+uvicorn[standard]
+google-auth
+pyjwt
