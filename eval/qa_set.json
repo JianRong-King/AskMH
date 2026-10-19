@@ -1,0 +1,352 @@
+[
+  {
+    "id": "q001",
+    "question": "How do I use my Enrich Points to book a flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Where-do-I-redeem-my-Enrich-Points",
+    "title": "Where do I redeem my Enrich Points?",
+    "topic": "AmBank Enrich Visa Credit Cards"
+  },
+  {
+    "id": "q002",
+    "question": "How is the extra baggage fee determined based on flight distance?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-is-the-zonal-excess-baggage-fee-calculated",
+    "title": "How is the zonal excess baggage fee calculated?",
+    "topic": "Baggage"
+  },
+  {
+    "id": "q003",
+    "question": "Can I use the same Enrich account for both work and personal travel?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-have-more-than-one-Enrich-account-such-as-one-for-business-and-one-for-personal-use",
+    "title": "Can I have more than one Enrich account, such as one for business and one for personal use?",
+    "topic": "Becoming An Enrich Member"
+  },
+  {
+    "id": "q004",
+    "question": "Can I buy MH Traveller’s Trio for a domestic flight from KLIA?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-MH-Traveller-s-Trio-applicable-system-wide-including-domestic-flights-and-those-departing-from-Stations-outside-KLIA",
+    "title": "Is MH Traveller’s Trio applicable system wide including domestic flights and those departing from Stations outside KLIA?",
+    "topic": "Bundle Products"
+  },
+  {
+    "id": "q005",
+    "question": "Will my car rental refund depend on the rental company's terms and conditions?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/For-involuntary-changes-will-I-get-a-car-rental-refund",
+    "title": "For involuntary changes, will I get a car rental refund?",
+    "topic": "Car Rental"
+  },
+  {
+    "id": "q006",
+    "question": "How can I stop my card from being charged again for future flights?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-can-I-prevent-this-from-happening-in-the-future",
+    "title": "How can I prevent this from happening in the future?",
+    "topic": "Card Payment Fee"
+  },
+  {
+    "id": "q007",
+    "question": "What size should my animal container be for the flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-are-the-requirements-for-the-animal-containers-or-kennels",
+    "title": "What are the requirements for the animal containers or kennels?",
+    "topic": "Cargo Services"
+  },
+  {
+    "id": "q008",
+    "question": "Can I use a mobile boarding pass for my flight from Kuala Lumpur to another city?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-a-digital-or-mobile-boarding-pass-available-for-travel-to-all-Malaysia-Airlines-destinations",
+    "title": "Is a digital or mobile boarding pass available for travel to all Malaysia Airlines destinations?",
+    "topic": "Check-in"
+  },
+  {
+    "id": "q009",
+    "question": "Can I get help with check-in and boarding if I'm a special needs passenger?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-someone-assist-me-at-check-in-and-send-me-to-the-aircraft",
+    "title": "Can someone assist me at check-in and send me to the aircraft?",
+    "topic": "Check-in Services"
+  },
+  {
+    "id": "q010",
+    "question": "Can I bring my own meal on the flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Am-I-allowed-to-bring-outside-food-on-board",
+    "title": "Am I allowed to bring outside food on board?",
+    "topic": "Chef-on-Call"
+  },
+  {
+    "id": "q011",
+    "question": "What happens if I send feedback to customer@malaysiaairlines.com after March 14, 2020?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-happens-if-I-still-send-my-feedback-to-customer-malaysiaaairlines-com-on-or-after-14-March-2020",
+    "title": "What happens if I still send my feedback to customer@malaysiaaairlines.com on or after 14 March 2020?",
+    "topic": "Customer Relations"
+  },
+  {
+    "id": "q012",
+    "question": "Do I get a discount with my OKU card for a Malaysia Airlines flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Are-there-any-discounts-for-passengers-with-disability",
+    "title": "Are there any discounts for passengers with disability?",
+    "topic": "Disability Assistance"
+  },
+  {
+    "id": "q013",
+    "question": "Can I get a copy of my boarding pass through the Malaysia Airlines website?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/I-lost-my-boarding-pass-can-I-get-a-copy-of-the-boarding-pass-via-Malaysia-Airlines-Self-Service-Support-Portal",
+    "title": "I lost my boarding pass; can I get a copy of the boarding pass via Malaysia Airlines Self-Service Support Portal?",
+    "topic": "Disruption Letter, Confirmation Letter"
+  },
+  {
+    "id": "q014",
+    "question": "Will I still get Enrich Points if my Malaysia Airlines flight is cancelled and I take another airline?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-I-earn-Enrich-Points-if-my-original-Malaysia-Airlines-flight-is-cancelled-or-if-I-am-re-routed-on-another-airline",
+    "title": "Will I earn Enrich Points if my original Malaysia Airlines flight is cancelled or if I am re-routed on another airline?",
+    "topic": "Earning Enrich Points"
+  },
+  {
+    "id": "q015",
+    "question": "Will my ordered economy meal be available if there's a flight delay?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-my-pre-ordered-Economy-Class-meal-guaranteed",
+    "title": "Is my pre-ordered Economy Class meal guaranteed?",
+    "topic": "Economy Pre-Order Meals"
+  },
+  {
+    "id": "q016",
+    "question": "Will I get my OTP on my international number if I'm using a GSM network?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-I-still-receive-my-OTP-if-I-nominated-an-international-mobile-number",
+    "title": "Will I still receive my OTP if I nominated an international mobile number?",
+    "topic": "Enrich"
+  },
+  {
+    "id": "q017",
+    "question": "Do my Enrich Platinum Points expire if I get downgraded to Gold?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Do-Enrich-Platinum-Points-expire",
+    "title": "Do Enrich Platinum Points expire?",
+    "topic": "Enrich Benefits And Privileges"
+  },
+  {
+    "id": "q018",
+    "question": "Will I get Enrich Points for the cash part of my Travel Award booking?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-I-earn-Enrich-Points-for-a-Travel-Award-redeemed-through-the-Enrich-Points-Cash-option",
+    "title": "Will I earn Enrich Points for a Travel Award redeemed through the Enrich Points + Cash option?",
+    "topic": "Enrich Redemption"
+  },
+  {
+    "id": "q019",
+    "question": "Can I bring a pet in my extra baggage?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-Extra-Baggage-applicable-for-other-baggage-carriage-term-eg-Live-animals-or-domestic-pets-Sporting-equipment-Carriage-of-weapon-firearms-ammunition-Transportation-of-cargo",
+    "title": "Is Extra Baggage applicable for other baggage carriage term (eg. Live animals or domestic pets, Sporting equipment, Carriage of weapon/firearms/ammunition,Transportation of cargo)?",
+    "topic": "Extra Baggage"
+  },
+  {
+    "id": "q020",
+    "question": "Can I get an extra legroom seat and 10kg baggage allowance together?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-is-Seat-with-Extra-Legroom-and-10kg-Extra-Baggage",
+    "title": "What is Seat with Extra Legroom and 10kg Extra Baggage?",
+    "topic": "Extra Legroom And 10kg Extra Baggage"
+  },
+  {
+    "id": "q021",
+    "question": "Can I get a refund for the Fare Freeze holding fee if my flight was canceled?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-my-Fare-Freeze-holding-fee-be-refunded",
+    "title": "Can my Fare Freeze holding fee be refunded?",
+    "topic": "Fare Freeze"
+  },
+  {
+    "id": "q022",
+    "question": "Can I bring my medication in my carry-on bag?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Am-I-allowed-to-bring-medication-with-me",
+    "title": "Am I allowed to bring medication with me?",
+    "topic": "Fit to Travel"
+  },
+  {
+    "id": "q023",
+    "question": "Will my extra baggage fee still apply if I get a new booking after using Fix Your Plan?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Does-Fix-Your-Plan-affect-additional-services-i-e-baggage-purchased",
+    "title": "Does ‘Fix Your Plan’ affect additional services (i.e. baggage) purchased?",
+    "topic": "Fix Your Plan"
+  },
+  {
+    "id": "q024",
+    "question": "Where can I find Malaysia Airlines lounge partners besides those at KLIA?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-other-lounges-are-available-apart-from-the-ones-in-KLIA",
+    "title": "What other lounges are available apart from the ones in KLIA?",
+    "topic": "Golden Lounge"
+  },
+  {
+    "id": "q025",
+    "question": "Can I transfer or refund my MHflypass ASEAN membership?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/MHflypass-ASEAN-is-non-transferable-non-refundable-and-non-upgradeable-Are-these-conditions-included-in-the-terms-and-conditions-for-member-to-view-before-making-a-purchase",
+    "title": "MHflypass ASEAN is non-transferable, non-refundable, and non-upgradeable. Are these conditions included in the terms and conditions for member to view before making a purchase?",
+    "topic": "Ground Products & Services"
+  },
+  {
+    "id": "q026",
+    "question": "Can I take the meal from the plane and eat it later?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-the-in-flight-meals-be-taken-out-of-the-cabin-for-consumption",
+    "title": "Can the in-flight meals be taken out of the cabin for consumption?",
+    "topic": "Inflight Products & Services"
+  },
+  {
+    "id": "q027",
+    "question": "Can I use Live Chat if I'm not in Malaysia?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Does-Live-Chat-support-international-customers",
+    "title": "Does Live Chat support international customers?",
+    "topic": "Live Chat"
+  },
+  {
+    "id": "q028",
+    "question": "Can I use the transfer service without booking ahead on my departure day?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-passengers-book-their-transfer-in-advance-before-their-departure-date",
+    "title": "Can passengers book their transfer in advance before their departure date?",
+    "topic": "MH Premium Transfer"
+  },
+  {
+    "id": "q029",
+    "question": "Will my credit card information stay private when booking with MHcheckout?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-my-bank-card-details-be-shared-with-the-airline-if-I-use-MHcheckout",
+    "title": "Will my bank card details be shared with the airline if I use MHcheckout?",
+    "topic": "MHcheckout"
+  },
+  {
+    "id": "q030",
+    "question": "How do I get help if I can't log in or receive my OTP?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-should-I-do-if-I-m-having-difficulties-during-registration-unable-to-log-in-or-not-receiving-the-One-Time-Password-OTP-during-login",
+    "title": "What should I do if I'm having difficulties during registration, unable to log in, or not receiving the One-Time Password (OTP) during login?",
+    "topic": "MHexplorer"
+  },
+  {
+    "id": "q031",
+    "question": "How do I redeem my MHflypass ASEAN for a flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-can-I-utilise-my-MHflypass-ASEAN",
+    "title": "How can I utilise my MHflypass ASEAN?",
+    "topic": "MHflypass ASEAN"
+  },
+  {
+    "id": "q032",
+    "question": "Can I add more money to my MHgiftcard after I buy it?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-top-up-the-value-of-a-MHgiftcard",
+    "title": "Can I top up the value of a MHgiftcard?",
+    "topic": "MHgiftcard"
+  },
+  {
+    "id": "q033",
+    "question": "What should I do if my flight is delayed and I miss my train?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/For-MHrail-bookings-what-should-I-do-if-my-flight-or-train-is-delayed-and-or-cancelled",
+    "title": "For MHrail bookings, what should I do if my flight or train is delayed and / or cancelled?",
+    "topic": "MHrail"
+  },
+  {
+    "id": "q034",
+    "question": "Can multiple passengers in my MHsports group share one baggage allowance?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-my-MHsports-group-share-the-baggage-allowance",
+    "title": "Can my MHsports group share the baggage allowance?",
+    "topic": "MHsports"
+  },
+  {
+    "id": "q035",
+    "question": "Do I need to pay extra if I want to change my flight date?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Do-I-have-to-pay-to-change-the-date-of-travel",
+    "title": "Do I have to pay to change the date of travel?",
+    "topic": "Manage My Booking"
+  },
+  {
+    "id": "q036",
+    "question": "Can I travel on a Malaysia Airlines flight if I'm 36 weeks pregnant?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-expectant-pregnant-mothers-travel-on-MH-flights",
+    "title": "Can expectant/pregnant mothers travel on MH flights?",
+    "topic": "Medical Assistance"
+  },
+  {
+    "id": "q037",
+    "question": "Can I change my name on my Malaysia Airlines ticket after a marriage or divorce?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/My-name-changed-after-marriage-divorce-Can-I-update-it-on-the-ticket",
+    "title": "My name changed after marriage/divorce. Can I update it on the ticket?",
+    "topic": "Online Booking"
+  },
+  {
+    "id": "q038",
+    "question": "What documents should I bring to the Live Chat for my Malaysia Airlines flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-information-should-I-have-ready-before-starting-a-session-for-FY-Live-Chat",
+    "title": "What information should I have ready before starting a session for FY Live Chat?",
+    "topic": "Others"
+  },
+  {
+    "id": "q039",
+    "question": "How do I get a refund for my ticket after a long flight delay?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/My-flight-was-delayed-for-hours-and-I-want-to-refund-my-ticket-Who-should-I-contact",
+    "title": "My flight was delayed for hours and I want to refund my ticket. Who should I contact?",
+    "topic": "Refunds"
+  },
+  {
+    "id": "q040",
+    "question": "How do I add a new card to my account?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-do-I-manage-my-Saved-Cards",
+    "title": "How do I manage my Saved Cards?",
+    "topic": "Reservation & Ticketing"
+  },
+  {
+    "id": "q041",
+    "question": "Where can I get help if I'm an elderly passenger flying alone?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Do-you-have-a-specific-counter-for-the-elderly-or-senior-citizens",
+    "title": "Do you have a specific counter for the elderly or senior citizens?",
+    "topic": "Senior Citizens"
+  },
+  {
+    "id": "q042",
+    "question": "Can my child with special needs travel alone on the flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/My-child-has-special-needs-is-he-eligible-to-travel-alone",
+    "title": "My child has special needs, is he eligible to travel alone?",
+    "topic": "Special Assistance"
+  },
+  {
+    "id": "q043",
+    "question": "Can I use the Golden Lounge for arriving flights?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-use-the-Malaysia-Airlines-Golden-Lounge-access-for-arrival-or-transit",
+    "title": "Can I use the Malaysia Airlines Golden Lounge access for arrival or transit?",
+    "topic": "AmBank Enrich Visa Credit Cards"
+  },
+  {
+    "id": "q044",
+    "question": "Can I check 2kg of cooking oil in my luggage for a flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Am-I-allowed-to-checked-in-2kg-of-cooking-oil-for-flights-within-Malaysia-or-Internationally",
+    "title": "Am I allowed to checked-in 2kg of cooking oil for flights within Malaysia or Internationally?",
+    "topic": "Baggage"
+  },
+  {
+    "id": "q045",
+    "question": "Does my Enrich Blue membership expire if I don't use it?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-there-an-expiry-date-for-Enrich-memberships",
+    "title": "Is there an expiry date for Enrich memberships?",
+    "topic": "Becoming An Enrich Member"
+  },
+  {
+    "id": "q046",
+    "question": "Does the extra legroom and baggage stay valid if the flight is delayed?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-is-the-validity-of-Seat-with-Extra-Legroom-and-15kg-Extra-Baggage-from-the-purchase-date",
+    "title": "What is the validity of Seat with Extra Legroom and 15kg Extra Baggage from the purchase date?",
+    "topic": "Bundle Products"
+  },
+  {
+    "id": "q047",
+    "question": "Are the local taxes and road fees included in the rental price?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Are-all-fees-included-in-the-rental-price",
+    "title": "Are all fees included in the rental price?",
+    "topic": "Car Rental"
+  },
+  {
+    "id": "q048",
+    "question": "Why did my card show two charges for one flight booking?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Why-do-I-see-two-charges-on-my-payment-card-for-a-single-transaction",
+    "title": "Why do I see two charges on my payment card for a single transaction?",
+    "topic": "Card Payment Fee"
+  },
+  {
+    "id": "q049",
+    "question": "How much does it cost to send my pet by air?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-much-does-it-cost-to-transport-animals",
+    "title": "How much does it cost to transport animals?",
+    "topic": "Cargo Services"
+  },
+  {
+    "id": "q050",
+    "question": "Why do I need to provide my passport and visa info when checking in for my flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Why-are-Passport-and-Visa-information-required-for-check-in",
+    "title": "Why are Passport and Visa information required for check-in?",
+    "topic": "Check-in"
+  }
+]
