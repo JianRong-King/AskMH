@@ -4,7 +4,7 @@ AskMH is an agentic RAG support assistant that answers Malaysia Airlines passeng
 Under the hood, a LangGraph state machine routes each message, retrieves and grades relevant articles, and generates grounded answers through typed Pydantic decision points.
 It is served by a FastAPI backend with Google sign-in and a React frontend, and is deployed on Google Cloud Run with LangSmith tracing and an admin analytics dashboard.
 
-**Live demo:** https://askmh-194250607947.asia-southeast1.run.app (Google sign-in required, because the demo shares a free-tier model quota)
+**Live demo:** https://askmh-194250607947.asia-southeast1.run.app (Google sign-in required, to limit llm model quota)
 
 ![AskMH answering a baggage question with a cited source](assets/chat.png)
 
@@ -82,7 +82,6 @@ flowchart TD
 - **Gemini thinking off.** It gave the same accuracy as dynamic thinking, at about half the median latency and a fifth of the cost.
 - **Sign-in protects the quota, not the key.** The Gemini key never leaves the server. Google sign-in only gates who can spend the shared daily quota.
 - **No stored conversations.** Chat memory is in-memory and deleted when the user refreshes, closes the tab or starts a new chat. Only anonymous metrics persist.
-- **Source links go through `/go`.** It logs the click for click-through metrics and only redirects to AskMH URLs.
 
 ## Results
 
@@ -98,8 +97,6 @@ flowchart TD
 A clarifying question is a valid outcome, not a failure: many AskMH answers depend on the route, cabin or fare. Counting both, Gemini handles **43/50 (86%)** and Qwen 38/50 (76%) without declining. Every answer either model gave cited the correct article.
 
 **Tests:** 40 pass on local Qwen3-8B, across 7 layers tested bottom-up: retrieval, structured output, router, grader, generation, full graph and API sessions.
-
-Write-ups: [eval/FINDINGS.md](eval/FINDINGS.md) covers the defects the test suite found and how they were fixed. The [benchmark report](eval/benchmarks/2026-10-16-gemini-thinking/REPORT.md) compares Gemini thinking modes with Qwen and covers a router bug triggered by curly apostrophes.
 
 ## Project structure
 
