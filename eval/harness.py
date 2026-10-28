@@ -1,6 +1,7 @@
 """Timing and metrics harness shared by every test layer."""
 
 import json
+import os
 import time
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -11,6 +12,9 @@ from config import CHROMA_DIR, CHUNKS_FILE, LLM_TIMEOUT
 
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 QA_SET = Path(__file__).resolve().parent / "qa_set.json"
+QA_HOLDOUT = Path(__file__).resolve().parent / "qa_holdout.json"
+# QA_SET=eval/qa_holdout.json runs the suite on the held-out set instead.
+QA_PATH = Path(os.getenv("QA_SET") or QA_SET)
 
 # A warm call is ~0.6s; a cold model load is ~35s. Anything above this in
 # load_duration means Ollama evicted the model and the timing is not comparable.
@@ -109,7 +113,7 @@ def index_fingerprint() -> dict:
 
 
 def load_qa_set() -> list[dict]:
-    with QA_SET.open(encoding="utf-8") as f:
+    with QA_PATH.open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -121,6 +125,7 @@ def write_results(extra: dict | None = None) -> Path:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
         "index": index_fingerprint(),
+        "qa_set": QA_PATH.name,
         "llm_timeout_s": LLM_TIMEOUT,
         "summary": summarize(),
         "extra": extra or {},

@@ -78,6 +78,7 @@ flowchart TD
 ### Design choices
 
 - **Dense retrieval only.** Hybrid dense + BM25 scored lower than plain dense on the 50-question eval, so Hybrid was dropped.
+- **Doc2query.** Gemini wrote 4 passenger-style questions per article, embedded with the article but never shown to the answering model. It lifted MRR from 0.848 to 0.882, and to 0.894 on held-out questions.
 - **Small articles stay whole.** 98% of articles are under 1,500 characters, so they are embedded as one chunk. Longer ones split at paragraph breaks, and tables are never split.
 - **Gemini thinking off.** It gave the same accuracy as dynamic thinking, at about half the median latency and a fifth of the cost.
 - **Sign-in protects the quota, not the key.** The Gemini key never leaves the server. Google sign-in only gates who can spend the shared daily quota.
@@ -85,7 +86,7 @@ flowchart TD
 
 ## Results
 
-**Retrieval** (50 paraphrased questions, worded differently from the article titles): Recall@5 **96%** (48/50), MRR **0.848**.
+**Retrieval** (50 paraphrased questions, worded differently from the article titles): Recall@5 **96%** (48/50), MRR **0.882**. On a 30-question held-out set of short casual questions: Recall@5 **97%**, MRR **0.894**.
 
 **End-to-end** (50 questions, full agent, recorded 2026-10-19):
 

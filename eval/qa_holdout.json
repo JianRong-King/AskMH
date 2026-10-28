@@ -1,0 +1,212 @@
+[
+  {
+    "id": "h001",
+    "question": "can i pay in usd instead of myr for my flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-the-payment-be-made-in-other-currencies-apart-from-MYR-Malaysian-Ringgit-via-MHcheckout",
+    "title": "Can the payment be made in other currencies apart from MYR (Malaysian Ringgit) via MHcheckout?",
+    "topic": "MHcheckout"
+  },
+  {
+    "id": "h002",
+    "question": "can i use my enrich gold card for the golden lounge?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-enter-the-Golden-Lounge-if-I-m-travelling-on-Economy-Class",
+    "title": "Can I enter the Golden Lounge if I'm travelling on Economy Class?",
+    "topic": "Golden Lounge"
+  },
+  {
+    "id": "h003",
+    "question": "can i go to langkawi for my bonus side trip?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Which-cities-in-Malaysia-are-eligible-for-the-Bonus-Side-Trip",
+    "title": "Which cities in Malaysia are eligible for the Bonus Side Trip?​",
+    "topic": "Others"
+  },
+  {
+    "id": "h004",
+    "question": "when will my chef on call meal come during the flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/When-will-my-pre-ordered-Chef-on-Call-meal-be-served",
+    "title": "When will my pre-ordered Chef-on-Call meal be served?",
+    "topic": "Chef-on-Call"
+  },
+  {
+    "id": "h005",
+    "question": "can i get a refund for extra baggage if i don't show up?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/For-no-show-can-Extra-Baggage-be-refunded",
+    "title": "For no show, can Extra Baggage be refunded?",
+    "topic": "Extra Baggage"
+  },
+  {
+    "id": "h006",
+    "question": "will i get charged the full fare if i don't book during the freeze period?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-I-be-charged-the-full-fare-amount-once-the-Fare-Freeze-holding-period-is-over",
+    "title": "Will I be charged the full fare amount once the Fare Freeze holding period is over?",
+    "topic": "Fare Freeze"
+  },
+  {
+    "id": "h007",
+    "question": "can i get a refund for the fare difference if i was downgraded?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Will-I-get-a-refund-for-the-fare-difference-if-I-am-involuntarily-downgraded",
+    "title": "Will I get a refund for the fare difference if I am involuntarily downgraded?",
+    "topic": "Refunds"
+  },
+  {
+    "id": "h008",
+    "question": "can i add a meal if i didn't choose one when booking?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-do-I-add-meals-to-my-booking",
+    "title": "How do I add meals to my booking?",
+    "topic": "Online Booking"
+  },
+  {
+    "id": "h009",
+    "question": "how do i handle a long name when the system only allows 40 characters?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/My-name-infant-s-name-exceeds-the-character-limit-What-should-I-do",
+    "title": "My name/ infant’s name exceeds the character limit. What should I do?",
+    "topic": "Manage My Booking"
+  },
+  {
+    "id": "h010",
+    "question": "can i get a refund through live chat?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Are-there-any-types-of-requests-that-cannot-be-handled-through-Live-Chat",
+    "title": "Are there any types of requests that cannot be handled through Live Chat?",
+    "topic": "Live Chat"
+  },
+  {
+    "id": "h011",
+    "question": "can i change my flight date without extra fees?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Are-there-any-charges-applicable-for-Fix-Your-Plan",
+    "title": "Are there any charges applicable for ‘Fix Your Plan’?",
+    "topic": "Fix Your Plan"
+  },
+  {
+    "id": "h012",
+    "question": "do i get a fee exemption if i book online from australia or new zealand?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Does-Enrich-or-oneworld-member-get-an-exemption",
+    "title": "Does Enrich or oneworld member get an exemption?",
+    "topic": "Card Payment Fee"
+  },
+  {
+    "id": "h013",
+    "question": "can i save my credit card details for future flights?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-is-the-Save-Cards-Feature",
+    "title": "What is the Save Cards Feature?",
+    "topic": "Reservation & Ticketing"
+  },
+  {
+    "id": "h014",
+    "question": "how do i use my mh giftcard code for flights?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-is-a-MHgiftcard",
+    "title": "What is a MHgiftcard?",
+    "topic": "MHgiftcard"
+  },
+  {
+    "id": "h015",
+    "question": "can i book a rental for a friend?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-book-a-rental-for-someone-else",
+    "title": "Can I book a rental for someone else?",
+    "topic": "Car Rental"
+  },
+  {
+    "id": "h016",
+    "question": "how do the trio fees change based on different routes and times?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-does-the-MH-Traveller-s-Trio-fee-structure-look-like",
+    "title": "How does the MH Traveller’s Trio fee structure look like?",
+    "topic": "Bundle Products"
+  },
+  {
+    "id": "h017",
+    "question": "will my old feedback from before march 2020 still be handled?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-happens-to-all-customer-feedback-received-prior-to-14-March-2020",
+    "title": "What happens to all customer feedback received prior to 14 March 2020?",
+    "topic": "Customer Relations"
+  },
+  {
+    "id": "h018",
+    "question": "how do i merge my existing enrich account with the new one for my ambank card?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/If-I-have-an-existing-Enrich-account-and-created-another-Enrich-account-for-the-AmBank-Enrich-Visa-Credit-Card-what-should-I-do-if-I-would-like-to-maintain-my-credit-card-benefits-under-1-Enrich-account",
+    "title": "If I have an existing Enrich account and created another Enrich account for the AmBank Enrich Visa Credit Card, what should I do if I would like to maintain my credit card benefits under 1 Enrich account?",
+    "topic": "AmBank Enrich Visa Credit Cards"
+  },
+  {
+    "id": "h019",
+    "question": "can i check in again after cancelling my previous check-in?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/I-cancelled-my-check-in-can-I-check-in-again-on-the-same-flight",
+    "title": "I cancelled my check-in, can I check-in again on the same flight?",
+    "topic": "Check-in"
+  },
+  {
+    "id": "h020",
+    "question": "do i get a free bassinet for my baby flight?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/If-I-m-flying-with-an-infant-do-I-have-to-pay-for-a-bassinet-seat",
+    "title": "If I'm flying with an infant, do I have to pay for a bassinet seat?",
+    "topic": "Special Assistance"
+  },
+  {
+    "id": "h021",
+    "question": "can i buy mhrail tickets through malaysia airlines website?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/How-or-where-can-I-purchase-MHrail-tickets",
+    "title": "How or where can I purchase MHrail tickets?",
+    "topic": "MHrail"
+  },
+  {
+    "id": "h022",
+    "question": "can i cancel my whole group booking?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-cancel-the-entire-MHsports-Group-booking",
+    "title": "Can I cancel the entire MHsports Group booking?",
+    "topic": "MHsports"
+  },
+  {
+    "id": "h023",
+    "question": "can i use the premium transfer service if i'm a business class passenger?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Who-is-entitled-to-use-the-Premium-Terminal-Transfer-Service",
+    "title": "Who is entitled to use the Premium Terminal Transfer Service?",
+    "topic": "MH Premium Transfer"
+  },
+  {
+    "id": "h024",
+    "question": "can i choose my own seat if i have a disability?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-are-the-special-seat-arrangement-for-passengers-with-disability-travelling-on-MH-flights",
+    "title": "What are the special seat arrangement for passengers with disability travelling on MH flights?",
+    "topic": "Disability Assistance"
+  },
+  {
+    "id": "h025",
+    "question": "can i take 10kg more checked baggage with my mhupgrade?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-baggage-allowance-applies-to-my-MHupgrade-booking",
+    "title": "What baggage allowance applies to my MHupgrade booking?",
+    "topic": "Inflight Products & Services"
+  },
+  {
+    "id": "h026",
+    "question": "what happens if there's no excess baggage rate for interline travel?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Does-the-excess-baggage-fee-structure-apply-to-interline-travel",
+    "title": "Does the excess baggage fee structure apply to interline travel?",
+    "topic": "Baggage"
+  },
+  {
+    "id": "h027",
+    "question": "can i board with business class passengers on malaysia airlines?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/What-is-Priority-Boarding",
+    "title": "What is Priority Boarding?",
+    "topic": "Enrich Benefits And Privileges"
+  },
+  {
+    "id": "h028",
+    "question": "where can i get a wheelchair at check-in?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Is-there-a-dedicated-counter-where-I-can-collect-the-wheelchair-requested",
+    "title": "Is there a dedicated counter where I can collect the wheelchair requested?",
+    "topic": "Check-in Services"
+  },
+  {
+    "id": "h029",
+    "question": "can i make a baggage report online through the self service portal?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-create-a-mishandled-baggage-report-online-via-Malaysia-Airlines-Self-Service-Support-Portal",
+    "title": "Can I create a mishandled baggage report online via Malaysia Airlines Self-Service Support Portal?",
+    "topic": "Disruption Letter, Confirmation Letter"
+  },
+  {
+    "id": "h030",
+    "question": "can i choose both a special meal and a regular one?",
+    "expected_url": "https://www.askmh.malaysiaairlines.com/faq/s/article/Can-I-request-both-special-dietary-meal-and-other-Economy-Pre-Order-Meals",
+    "title": "Can I request both special dietary meal and other Economy Pre-Order Meals?",
+    "topic": "Economy Pre-Order Meals"
+  }
+]

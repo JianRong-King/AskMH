@@ -422,3 +422,61 @@ Gemini free tier.
     5x the cost.
   - Gemini resolves 36/50 vs Qwen's 22/50.
   - Gemini's router produces degenerate output on a curly apostrophe (U+2019).
+- **2026-10-28, doc2query.** See F5 below: better ranking, same 38/50 end to end.
+
+---
+
+# F5 - Doc2query: generated questions in the embedding
+
+### Why
+
+The two remaining misses, q001 and q040, are vocabulary gaps, not hard questions.
+
+- **q001** asks "use my Enrich Points to book a flight". The site calls this a "Travel Award", and the labelled article ("Where do I redeem my Enrich Points?") never mentions flights. It was not in the top 30.
+- **q040** asks "add a new card to my account". "Card" pulls in the Enrich membership-card articles, and the labelled "How do I manage my Saved Cards?" ranked 11th.
+
+### Change
+
+- `index/doc2query.py`: Gemini 2.5 Flash (thinking off) writes 4 passenger-style questions per article, at least two of them avoiding the title's wording and product names.
+  - Batches of 10 articles per call, cached in `data/doc2query.json` keyed by a hash of title and body.
+  - All 1,483 articles took 176 s, with 162k input and 103k output tokens (about $0.31 at list price).
+- `index/chunker.py`: the questions go into chunk metadata. `embedding_text()` puts them after the `Topic`/`Question` header.
+- `index/build_index.py`: embeds that augmented text but stores the plain chunk, writing through `chromadb` directly. The grader and generator never see generated text, so it cannot be quoted as fact.
+
+### Measuring it fairly
+
+`eval/qa_set.json` is itself LLM-paraphrased, so generated questions could match it for the wrong reason. A held-out set was built **before** the reindex: `eval/qa_holdout.json`, from `python -m eval.build_qa_set --holdout`.
+- 30 short, casual questions, written by Qwen (not Gemini) with a different prompt.
+- Drawn from articles the 50-question set does not use.
+
+Run the suite on it with `QA_SET=eval/qa_holdout.json`.
+
+### Results (agent retrieval, k=5)
+
+| Set | Index | R@1 | R@3 | R@5 | MRR | Misses |
+|---|---|---|---|---|---|---|
+| qa_set (50) | before | 76% | 94% | 96% | 0.848 | q001, q040 |
+| qa_set (50) | **doc2query** | **82%** | 94% | 96% | **0.882** | q001, q040 |
+| holdout (30) | before | 80% | 93% | 93% | 0.861 | h001, h014 |
+| holdout (30) | **doc2query** | **83%** | **97%** | **97%** | **0.894** | h001 |
+
+- **On the 50:** the labelled article moved up for q003, q035 (4th to 1st), q038, q048 and q027. It moved down for q012, q013 and q019, all still in the top 4.
+- **q040 and q001 still miss.** q040 rose from 11th to 6th. For q001, the top hits are now redemption articles that answer the question ("book a ticket but not enough Enrich Points"); the label is the weak part.
+
+**Alternative rejected: one vector per generated question.** This was tested in memory, scoring each article by its best vector. It was the only variant to reach R@5 100% on the 50, but on the held-out set R@1 fell to 63% and MRR to 0.758. Matching the LLM's own phrasing is the leakage this held-out set was built to expose.
+
+### End to end (Gemini off, run 4 vs run 3)
+
+38/50 cited the labelled article in both runs, so there was no net gain.
+
+| Change | Questions |
+|---|---|
+| Now cite the labelled article (better ranking) | q025, q038 |
+| Answered to clarify; labelled article still 1st, but a different 5th article made the grader ask for cabin or tier | q042, q043 |
+| Clarify to declined (wrong either way) | q004, q036 |
+
+Run 4 rows: `benchmarks/2026-10-16-gemini-thinking/runs/gemini-off_run4.json`. The test suite passes 40/40 on Qwen.
+
+### Takeaway
+
+Retrieval was not the binding constraint: 48/50 labelled articles were already retrieved, but only 38 were answered. Doc2query is kept because it improves ranking on both sets at no runtime cost. The remaining accuracy is in the grader's answer-or-clarify judgement.

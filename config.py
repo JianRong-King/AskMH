@@ -9,6 +9,7 @@ load_dotenv(ROOT / ".env")
 DATA_DIR = ROOT / "data"
 ARTICLES_DIR = DATA_DIR / "articles"
 CHUNKS_FILE = DATA_DIR / "chunks.jsonl"
+DOC2QUERY_FILE = DATA_DIR / "doc2query.json"
 CHROMA_DIR = DATA_DIR / "chroma"
 COLLECTION = "askmh"
 METRICS_DB = DATA_DIR / "metrics.db"
