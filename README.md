@@ -1,8 +1,8 @@
 # AskMH Chatbot
 
-AskMH is an agentic RAG support assistant that answers Malaysia Airlines passenger questions using only a 1,483-article knowledge base. It cites its sources, asks for missing details, and hands off to a human when it can't help.
+An agentic RAG chatbot that answers Malaysia Airlines passenger questions using only a 1,483-article knowledge base. It cites its sources, asks for missing details, and hands off to a human when the question is not in the FAQ data.
 Under the hood, a LangGraph state machine routes each message, retrieves and grades relevant articles, and generates grounded answers through typed Pydantic decision points.
-It is served by a FastAPI backend with Google sign-in and a React frontend, and is deployed on Google Cloud Run with LangSmith tracing and an admin analytics dashboard.
+It is served by a FastAPI backend with Google sign-in and a React frontend, and is deployed on Google Cloud Run with LangSmith tracing.
 
 **Live demo:** https://askmh-194250607947.asia-southeast1.run.app (Google sign-in required, to limit llm model quota)
 
