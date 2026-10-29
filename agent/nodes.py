@@ -63,6 +63,7 @@ class State(TypedDict, total=False):
     question: str
     docs: list[Document]
     decision: str
+    grader_raw: str
     failures: int
     sources: list[str]
 
@@ -173,7 +174,8 @@ def grade(state: State) -> State:
         decision = "none"
     if decision == "clarify" and not result.clarifying_question.strip():
         decision = "answer"
-    update: State = {"decision": decision, "docs": relevant}
+    # grader_raw is the model's own choice, before the repairs above; benchmarks record both.
+    update: State = {"decision": decision, "grader_raw": result.decision, "docs": relevant}
     if decision == "clarify":
         update["messages"] = [AIMessage(result.clarifying_question.strip())]
     return update
@@ -190,7 +192,7 @@ def generate(state: State) -> State:
     answer = call_llm(get_llm(), [
         SystemMessage(prompts.GENERATE.format(context=format_docs(docs), no_answer=prompts.NO_ANSWER)),
         HumanMessage(state["question"]),
-    ]).content.strip()
+    ]).text.strip()  # .text, not .content: some models return a list of content blocks
 
     # The grader thought these articles sufficed but the generator disagreed. Citing sources
     # under a refusal would look answered to the user and to the metrics, so count a failure.

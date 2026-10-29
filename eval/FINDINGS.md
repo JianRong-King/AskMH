@@ -480,3 +480,106 @@ Run 4 rows: `benchmarks/2026-10-16-gemini-thinking/runs/gemini-off_run4.json`. T
 ### Takeaway
 
 Retrieval was not the binding constraint: 48/50 labelled articles were already retrieved, but only 38 were answered. Doc2query is kept because it improves ranking on both sets at no runtime cost. The remaining accuracy is in the grader's answer-or-clarify judgement.
+
+---
+
+# F6 - The grader asked about conditions instead of stating them
+
+### What happened
+
+In Gemini run 4, the labelled article was ranked first for every one of the 7 clarifies, and several of those articles answered the question outright. The rule "clarify when the answer depends on a detail the passenger has not given" matches almost every FAQ answer, so the grader turned the answer's own conditions into questions.
+
+| Q | The article says | The grader asked |
+|---|---|---|
+| q042 | A child with special needs may travel alone, provided they can follow safety instructions and do 7 listed things | "Can your child understand safety instructions and perform the required movements?" |
+| q043 | Lounge access is for departing flights only | "Business Suite or Enrich Platinum?" |
+| q046 | Valid until the scheduled departure time | "Voluntary or involuntary delay?" |
+| q033 | If a delayed flight makes you miss the train, the airline issues a new ticket | "Is your train part of an MHrail booking?" |
+
+### Fix (`agent/prompts.py`, `GRADER`)
+
+- **Rule 1 (answer):** adds that a rule with conditions, limits or exceptions is still an answer. The reply states the conditions, and the grader must not ask whether they apply.
+- **Rule 2 (clarify):** narrowed to articles that give a different answer or amount for each case, such as a fee table, when the question does not say which case applies.
+- **Rejected wording:** an extra criterion, "too many cases to list in a short reply", was tried first. On a 6-row fee table it made Gemini answer and Qwen decline, because "too many" is a judgement call. It was removed.
+
+`grade()` now also returns `grader_raw`, the model's own decision before the repair rules, and `compare_llms` records it.
+
+**Tests** (`tests/test_4_grader.py`):
+- Should answer: three made-up articles with conditional answers.
+- Must not decline: a fee table, which accepts clarify or answer.
+
+On these single-article cases the old prompt also passes on both models: the failure only appeared with five real retrieved articles in context. So the cases are regression guards, and the benchmark is the evidence. The suite passes 44/44 on Qwen, including `test_6`'s "how much is extra baggage?", which still clarifies.
+
+### Results (index with doc2query in both runs)
+
+| Run | Correct (cited the labelled article) | answered | clarify | declined | median turn |
+|---|---|---|---|---|---|
+| gemini-off r4 (before) | 38 | 38 | 7 | 5 | 4.08 s |
+| gemini-off **r5 (after)** | **42** | 42 | **2** | 6 | 3.90 s |
+| qwen r3 (before; also before doc2query) | 30 | 30 | 17 | 3 | 2.77 s |
+| qwen **r4 (after)** | **37** | 39 | **1** | 10 | 4.60 s |
+
+**Gemini:**
+- **Gained (clarify to cited answer):** q030, q033, q042 and q043. Each reply states the rule and its conditions.
+- **Lost:** q046 went from clarify to declined, and its raw decision was `none`. It was wrong either way.
+
+**Qwen:**
+- **Gained:** 7 questions moved to cited answers: q004, q005, q012, q016, q018, q027 and q035. q013 and q040 are now answered but cite a different article.
+- **New declines:** 7 questions moved from clarify to declined even though the raw grader decision was `answer`: q006, q015, q019, q034, q043, q046 and q001 (q001's labelled article isn't retrieved). Qwen's generator then emitted the refusal line. This is the same generator caution as q026 and q048 in the 2026-10-16 report; this fix moved those questions from the grader to the generator.
+- **Clarify forced to none:** q038's raw decision was `clarify`, but `grade()` repaired it to `none`.
+
+**Latency:** Qwen's median is higher partly because 9 more turns reach `generate`. Run 4 also shared the GPU with the Gemini run's embedding model, so its latency is not comparable.
+
+### Still unresolved (Gemini r5, 8 questions)
+
+| Cause | Questions |
+|---|---|
+| Retrieval miss | q001, q040 |
+| Grader's own choice is `none`, with the labelled article at rank 1. Each answer needs a rule applied to the passenger's case (36 weeks against a 37-week limit, a delay against "valid until scheduled departure"), or is a "no" ("cannot be avoided") | q006, q036, q046 |
+| Grader said answer, then the generator refused | q004 |
+| Clarify | q035 (asks "time and/or date?"), q049 (cargo or excess baggage, which is defensible) |
+
+Run rows: `benchmarks/2026-10-16-gemini-thinking/runs/gemini-off_run5.json` and `qwen_run4.json`.
+
+---
+
+# F7 - Gemini 3.8 Flash vs 2.5 Flash
+
+### Setup
+
+The Gemini 3 support described here was removed after this comparison, so only the run files remain.
+
+- **Config:** `compare_llms` gained a temporary `gemini-3.8-low` config (`gemini-3.8-flash`, `GEMINI_THINKING_LEVEL=low`).
+- **Thinking:** Gemini 3+ cannot turn thinking off. When the level is set, `get_llm()` sends `thinking_level` instead of `thinking_budget`.
+- **Temperature:** the level setting keeps Google's default temperature, since the Gemini 3 guide warns that values below 1.0 can cause looping. These runs are therefore not deterministic.
+- **Router cap:** with a level set, the router's output cap is 1,024 tokens, because thinking tokens count against it.
+
+**Code fix found on the way:** Gemini 3 returns the message content as a list of blocks, so `generate()` crashed on `.content.strip()` in 45 of 50 turns. It now uses `.text`, which works for both formats.
+
+### Results (same index and prompts as gemini-off r5)
+
+| Run | Correct (cited the labelled article) | answered | clarify | declined | error | median turn | p90 | cost / 50 questions |
+|---|---|---|---|---|---|---|---|---|
+| 2.5 Flash, thinking off (r5) | 42 | 42 | 2 | 6 | 0 | 3.9 s | 4.2 s | $0.031 |
+| 3.8 Flash, low (r1) | 42 | 45 | 0 | 5 | 0 | 7.4 s | 9.5 s | $0.086 |
+| 3.8 Flash, low (r2) | 40 | 42 | 0 | 5 | 3 | 7.5 s | 10.4 s | $0.083 |
+
+Prices used: $0.30 / $2.50 per million tokens (in / out) for 2.5 Flash, and $0.75 / $3.75 for 3.8 Flash. The 3.8 Flash rate doubles on 2027-01-01.
+
+**Gained by 3.8 Flash:**
+- q004: the generator no longer refuses.
+- q035 and q049: answered instead of clarified.
+
+**Lost:** q013, q038 and q043 are answered, but cite a different article. Their content looks right, so these are label effects.
+
+**Shared by both models:** the same 5 questions are unresolved by both, so these failures do not come from model strength.
+- q001 and q040: retrieval misses.
+- q006, q036 and q046: the grader chose `none` with the labelled article at rank 1.
+
+**Errors:**
+- In r2, 3 turns returned `400 INVALID_ARGUMENT` on requests that succeeded in r1. This is intermittent and not reproduced.
+- 3.8 Flash never asked a clarifying question. It fails `test_6`'s "how much is extra baggage?": instead of asking for the route, it says fees depend on zone and distance and are not listed.
+
+### Decision
+
+Keep `gemini-2.5-flash` with thinking off. 3.8 Flash resolves more questions (45 vs 42 answered without a clarify or decline) at the same 42 strict accuracy. In exchange it is about 1.9x slower at the median, about 2.7x the cost (rising in January), non-deterministic, and has intermittent 400 errors. Its free-tier limits are also unpublished. The 5 failures both models share are the better lever: the grader's `none` on rule-application questions, plus the 2 retrieval misses.

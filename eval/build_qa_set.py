@@ -106,7 +106,7 @@ def main():
         if resp is None:
             print(f"{i:>3}. SKIP ({m.error})")
             continue
-        question = resp.content.strip().strip('"').splitlines()[0].strip()
+        question = resp.text.strip().strip('"').splitlines()[0].strip()
         rows.append(
             {
                 "id": f"{prefix}{i:03d}",

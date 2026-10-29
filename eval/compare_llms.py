@@ -30,8 +30,10 @@ QA_SET = EVAL_DIR / "qa_set.json"
 BENCH_DIR = EVAL_DIR / "results" / "bench"
 
 CONFIGS = {
-    "gemini-off": {"CHAT_PROVIDER": "gemini", "GEMINI_THINKING_BUDGET": "0", "LLM_RPM": "60"},
-    "gemini-dynamic": {"CHAT_PROVIDER": "gemini", "GEMINI_THINKING_BUDGET": "-1", "LLM_RPM": "60"},
+    "gemini-off": {"CHAT_PROVIDER": "gemini", "CHAT_MODEL": "gemini-2.5-flash", "GEMINI_THINKING_BUDGET": "0",
+                   "LLM_RPM": "60"},
+    "gemini-dynamic": {"CHAT_PROVIDER": "gemini", "CHAT_MODEL": "gemini-2.5-flash", "GEMINI_THINKING_BUDGET": "-1",
+                       "LLM_RPM": "60"},
     "qwen": {"CHAT_PROVIDER": "ollama"},
 }
 
@@ -80,6 +82,7 @@ def run(name: str, run_no: int) -> None:
                 "route": state.get("route", ""),
                 "rewritten_question": state.get("question", ""),
                 "decision": state.get("decision", ""),
+                "grader_raw": state.get("grader_raw", ""),
                 "outcome": outcome,
                 "retrieved": retrieved,
                 "expected_rank": retrieved.index(qa["expected_url"]) + 1 if qa["expected_url"] in retrieved else None,

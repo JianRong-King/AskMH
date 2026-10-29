@@ -101,9 +101,43 @@ def test_repair_clarify_emits_question(monkeypatch):
     assert ok
 
 
+def _doc(topic: str, title: str, body: str) -> Document:
+    return Document(page_content=f"Topic: {topic}\nQuestion: {title}\n\n{body}",
+                    metadata={"url": f"https://example.test/{title[:20]}", "title": title})
+
+
+# Made-up articles in the shape of real ones. An answer with conditions is still an answer:
+# the grader used to ask the passenger whether the condition applied (eval/FINDINGS.md F6).
+UNACCOMPANIED = [_doc(
+    "Special Assistance", "Can a child with special needs travel alone?",
+    "A child with special needs may travel unaccompanied, provided the child can follow the crew's "
+    "safety instructions, fasten and unfasten the seat belt, and reach an emergency exit unaided.",
+)]
+PREGNANCY = [_doc(
+    "Medical Assistance", "Can pregnant passengers fly?",
+    "Passengers with a normal pregnancy are accepted up to the end of week 35. From week 28, "
+    "carry a doctor's letter confirming you are fit to fly.",
+)]
+LOUNGE = [_doc(
+    "Lounges", "Can I use the lounge on arrival?",
+    "Lounge access applies to departing flights only. It is not available to arriving passengers.",
+)]
+# Per-case amounts and no case given. Clarify is the aim; listing the table is acceptable,
+# but declining is the F3 dead end. The real-retrieval version is test_6's clarify case.
+FEE_TABLE = [_doc(
+    "Baggage", "How much does extra baggage cost?",
+    "Extra baggage fees per 5kg block, by route zone:\n\n| Zone | Fee |\n|---|---|\n"
+    "| Domestic | MYR 45 |\n| ASEAN | MYR 90 |\n| North Asia | MYR 150 |\n| Middle East | MYR 200 |\n"
+    "| Europe | MYR 260 |\n| Australia and New Zealand | MYR 230 |",
+)]
+
 LLM_CASES = [
     ("relevant-docs", "what is the cabin baggage allowance?", DOCS, {"answer", "clarify"}),
     ("irrelevant-docs", "how do I rent a car in Paris?", DOCS, {"none"}),
+    ("conditional-yes", "can my son with special needs fly by himself?", UNACCOMPANIED, {"answer"}),
+    ("rule-with-limit", "can I still fly at 30 weeks pregnant?", PREGNANCY, {"answer"}),
+    ("flat-rule", "can I use the lounge after I land?", LOUNGE, {"answer"}),
+    ("fee-table-needs-route", "how much is extra baggage?", FEE_TABLE, {"clarify", "answer"}),
 ]
 
 

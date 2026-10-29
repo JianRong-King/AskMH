@@ -15,7 +15,7 @@ Conversation so far:
 
 Latest message: {message}"""
 
-GRADER = """You check whether AskMH articles can answer a Malaysia Airlines passenger's question.
+GRADER = """Check whether AskMH articles can answer a Malaysia Airlines passenger's question.
 
 Question: {question}
 
@@ -23,8 +23,9 @@ Articles:
 {context}
 
 Decide, in this order:
-1. answer: at least one article answers the question as asked. Its wording does not have to match the question's.
-2. clarify: the articles are on topic, but the answer depends on a detail the passenger has not given (route, cabin class, fare type, weight, Enrich tier, etc.). Write one short clarifying question.
+1. answer: at least one article answers the question as asked. Its wording does not have to match the question's. Return an answer if the articles cover the question's topic and give enough detail to answer it.
+   A rule that comes with conditions, limits or exceptions is still an answer ("yes, if...", "only for...", "not after...", "except..."). Choose answer: the reply will state the conditions. Do not ask the passenger whether a condition applies to them.
+2. clarify: the articles give a different answer or amount for each case (route, cabin class, fare type, weight, Enrich tier, etc.), such as a fee table, and the question does not say which case applies. Write one short clarifying question.
 3. none: choose this ONLY when the articles are off topic. If they cover the right subject and you merely need one more detail from the passenger, choose clarify, not none.
 
 List the numbers of the relevant articles."""
